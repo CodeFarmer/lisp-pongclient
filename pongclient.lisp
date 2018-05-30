@@ -1,8 +1,8 @@
 (ql:quickload "usocket")
 (ql:quickload "cl-json")
 
-(defvar hostname (or (second *posix-argv*)
-		     "localhost"))
+(defparameter hostname (or (second *posix-argv*)
+			   "localhost"))
 
 (defparameter sock (usocket:socket-connect hostname 6000))
 (defparameter s (usocket:socket-stream sock))

@@ -4,9 +4,7 @@
 (defvar hostname (or (second *posix-argv*)
 		     "localhost"))
 
-(defvar s (usocket:socket-connect hostname 6000))
-
-(defparameter sock (usocket:socket-connect "localhost" 6000))
+(defparameter sock (usocket:socket-connect hostname 6000))
 (defparameter s (usocket:socket-stream sock))
 
 (read-line s)

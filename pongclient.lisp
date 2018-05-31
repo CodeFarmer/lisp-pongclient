@@ -11,9 +11,12 @@
 (write-line "Common Lisp" s)
 (finish-output s)
 
+(defun make-keyword (astring)
+  (intern (string-upcase astring) "KEYWORD"))
+
 (loop
    (let* ((msg    (cl-json:decode-json s))
-	  (side   (intern (string-upcase (cdr (assoc :SIDE msg))) "KEYWORD"))
+	  (side   (make-keyword (cdr (assoc :SIDE msg))))
 	  (bat-y  (cdr (assoc side msg)))
 	  (ball-y (second (cdr (assoc :BALL msg)))))
      
